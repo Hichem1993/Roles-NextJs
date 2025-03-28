@@ -64,7 +64,7 @@ export default function SignupPage() {
       setIsLoading(false)
     } else {
       // Redirect to confirmation page or login
-      router.push("/accueil")
+      router.push("/login")
     }
   }
 
