@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import Header from "@/components/header"
 import { emailLogin } from "./actions"
+import HeaderPage from "@/components/header"
 
 export default function LoginPage() {
   return (
     <>
-    <Header />
+    <HeaderPage />
     <div className="flex justify-center items-center min-h-[calc(100vh-8rem)]">
       <Card className="w-full max-w-md">
         <CardHeader>

@@ -34,7 +34,7 @@ export default function SignupPage() {
   const [serverError, setServerError] = useState<{ code?: string; message: string } | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  // Initialize React Hook Form
+  // React Hook Form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,7 +45,7 @@ export default function SignupPage() {
     },
   })
 
-  // Handle form submission
+  // submission
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
     setServerError(null)

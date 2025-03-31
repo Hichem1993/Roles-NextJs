@@ -1,10 +1,10 @@
-import Header from "@/components/header";
+import HeaderPage from "@/components/header";
 
 
 export default function Accueil() {
   return (
     <>
-    <Header />
+    <HeaderPage />
     <h1>Accueil</h1>
     </>
   )

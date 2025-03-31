@@ -1,10 +1,10 @@
 import SignupPage from "@/components/form";
-import Header from "@/components/header";
+import HeaderPage from "@/components/header";
 
 export default function Inscription() {
   return (
     <>
-        <Header />
+        <HeaderPage />
         <SignupPage />
 
     </>
