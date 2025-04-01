@@ -29,10 +29,13 @@ export default async function HeaderPage() {
           </Link>
 
           {users?.roles === "Admin" ? (
-            <Link href="/admin">Admin</Link>
+            <>
+              <Link href="/accueil">Accueil</Link>
+              <Link href="/admin">Admin</Link>
+            </>
           ) : (
-            <Link href="/accueil">Accueil</Link>
-          ) }  
+              <Link href="/accueil">Accueil</Link>
+          ) }
 
           {user !== null ? (
               <form action={signOut} className="flex items-center gap-2">

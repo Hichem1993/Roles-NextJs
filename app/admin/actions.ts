@@ -11,19 +11,24 @@ type Car = {
 }
 
 export async function addCar(car: Car) {
+    const supabase = await createClient();
+
     try {
-      const supabase = await createClient();
-      const { data, error } = await supabase.from("car").insert(car).select();
+      const { error } = await supabase.from("car").insert(car);
   
       if (error) {
-        return { error: error.message };
+        return { success: false, error: error.message };
       }
-  
-      // Redirection après insertion
-      redirect("/accueil");
+      
+      // Quand c'est réussi, retourner success avant la redirection
+      return { success: true };
     } catch (error: any) {
       console.error("Erreur serveur:", error);
-      return { error: error.message || "Une erreur s'est produite" };
+      return { success: false, error: error.message || "Une erreur s'est produite" };
     }
 }
-  
+
+// Fonction séparée pour la redirection
+export async function redirectToAccueil() {
+  redirect("/accueil");
+}

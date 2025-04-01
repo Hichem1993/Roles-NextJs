@@ -9,9 +9,25 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert } from "@/components/ui/alert"
-import HeaderPage from "@/components/header"
+import { createClient } from "@/utils/supabase/client"
+import { redirect } from "next/navigation"
 
-export default function AddCarPage() {
+
+const supabase = await createClient();
+
+const {
+  data: { user },
+} = await supabase.auth.getUser();
+
+// Récupérer les données du user connecté
+const { data: users }  = await supabase.from("users").select("*").single();
+
+if (users?.roles !== "Admin") {
+  redirect("/accueil");
+}
+
+export default async function AddCarPage() {
+  
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     marque: "",
