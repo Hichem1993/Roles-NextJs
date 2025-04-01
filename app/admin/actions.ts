@@ -10,6 +10,8 @@ type Car = {
   annee: number
 }
 
+
+
 export async function addCar(car: Car) {
     const supabase = await createClient();
 
@@ -20,7 +22,7 @@ export async function addCar(car: Car) {
         return { success: false, error: error.message };
       }
       
-      // Quand c'est réussi, retourner success avant la redirection
+      
       return { success: true };
     } catch (error: any) {
       console.error("Erreur serveur:", error);
@@ -28,7 +30,7 @@ export async function addCar(car: Car) {
     }
 }
 
-// Fonction séparée pour la redirection
+
 export async function redirectToAccueil() {
   redirect("/accueil");
 }

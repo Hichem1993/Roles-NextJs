@@ -26,7 +26,8 @@ if (users?.roles !== "Admin") {
   redirect("/accueil");
 }
 
-export default async function AddCarPage() {
+
+export default function AddCarPage() {
   
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
